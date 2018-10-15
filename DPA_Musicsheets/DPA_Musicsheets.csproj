@@ -75,8 +75,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PSAMWPFControlLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Sanford.Multimedia.Midi, Version=6.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sanford.Multimedia.Midi.6.4.1\lib\net20\Sanford.Multimedia.Midi.dll</HintPath>
+    <Reference Include="Sanford.Multimedia.Midi, Version=6.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sanford.Multimedia.Midi.6.6.0\lib\net20\Sanford.Multimedia.Midi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -224,6 +224,16 @@
     <Content Include="Files\Eenvoudige voorbeeldfiles\Punten.ly" />
     <Content Include="Files\Eenvoudige voorbeeldfiles\Rusten.ly" />
     <Content Include="Files\Eenvoudige voorbeeldfiles\Standaard_noten.ly" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DPA_Musicsheets.Domain\DPA_Musicsheets.Domain.csproj">
+      <Project>{bbdf9fbf-0276-4681-8c3f-11b07ca8bba2}</Project>
+      <Name>DPA_Musicsheets.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPA_MusicSheets_Service\DPA_MusicSheets_Service.csproj">
+      <Project>{e8482ea0-84b3-4754-a8db-609361a9b1c8}</Project>
+      <Name>DPA_MusicSheets_Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

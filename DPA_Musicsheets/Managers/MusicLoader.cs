@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DPA_MusicSheets_Service.Concrete;
+using DPA_MusicSheets_Service.Abstract;
 
 namespace DPA_Musicsheets.Managers
 {
@@ -28,6 +30,8 @@ namespace DPA_Musicsheets.Managers
         private static List<Char> notesorder = new List<Char> { 'c', 'd', 'e', 'f', 'g', 'a', 'b' };
 
         public Sequence MidiSequence { get; set; }
+
+        private IFileTypeFactory factory = new FileTypeFactory();
         #endregion Properties
 
         private int _beatNote = 4;    // De waarde van een beatnote.
@@ -48,32 +52,34 @@ namespace DPA_Musicsheets.Managers
         /// <param name="fileName"></param>
         public void OpenFile(string fileName)
         {
-            if (Path.GetExtension(fileName).EndsWith(".mid"))
-            {
-                MidiSequence = new Sequence();
-                MidiSequence.Load(fileName);
+            FileType outcome = factory.Get(fileName);
 
-                MidiPlayerViewModel.MidiSequence = MidiSequence;
-                this.LilypondText = LoadMidiIntoLilypond(MidiSequence);
-                this.LilypondViewModel.LilypondTextLoaded(this.LilypondText);
-            }
-            else if (Path.GetExtension(fileName).EndsWith(".ly"))
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (var line in File.ReadAllLines(fileName))
-                {
-                    sb.AppendLine(line);
-                }
-                
-                this.LilypondText = sb.ToString();
-                this.LilypondViewModel.LilypondTextLoaded(this.LilypondText);
-            }
-            else
-            {
-                throw new NotSupportedException($"File extension {Path.GetExtension(fileName)} is not supported.");
-            }
+            //if (Path.GetExtension(fileName).EndsWith(".mid"))
+            //{
+            //    MidiSequence = new Sequence();
+            //    MidiSequence.Load(fileName);
 
-            LoadLilypondIntoWpfStaffsAndMidi(LilypondText);
+            //    MidiPlayerViewModel.MidiSequence = MidiSequence;
+            //    this.LilypondText = LoadMidiIntoLilypond(MidiSequence);
+            //    this.LilypondViewModel.LilypondTextLoaded(this.LilypondText);
+            //}
+            //else if (Path.GetExtension(fileName).EndsWith(".ly"))
+            //{
+            //    StringBuilder sb = new StringBuilder();
+            //    foreach (var line in File.ReadAllLines(fileName))
+            //    {
+            //        sb.AppendLine(line);
+            //    }
+
+            //    this.LilypondText = sb.ToString();
+            //    this.LilypondViewModel.LilypondTextLoaded(this.LilypondText);
+            //}
+            //else
+            //{
+            //    throw new NotSupportedException($"File extension {Path.GetExtension(fileName)} is not supported.");
+            //}
+
+            //LoadLilypondIntoWpfStaffsAndMidi(LilypondText);
         }
 
         /// <summary>
