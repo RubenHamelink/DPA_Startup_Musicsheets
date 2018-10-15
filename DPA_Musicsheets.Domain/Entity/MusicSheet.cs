@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DPA_Musicsheets.Domain.Entity
 {
-    public class Barline : MusicalSymbol
+    public class MusicSheet
     {
-        public IEnumerable<MusicalSymbol> MusicalSymbols { get; set; }
+        private IEnumerable<MusicalSymbol> MusicalSymbols { get; set; }
     }
 }

@@ -46,8 +46,18 @@
     <Compile Include="Concrete\FileTypeFactory.cs" />
     <Compile Include="Concrete\LilyFile.cs" />
     <Compile Include="Concrete\MidiFile.cs" />
+    <Compile Include="Abstract\ILilypondInterpreter.cs" />
+    <Compile Include="Concrete\Interpreter\Context.cs" />
+    <Compile Include="Concrete\Interpreter\Expression.cs" />
+    <Compile Include="Concrete\Interpreter\LilypondInterpreter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DPA_Musicsheets.Domain\DPA_Musicsheets.Domain.csproj">
+      <Project>{BBDF9FBF-0276-4681-8C3F-11B07CA8BBA2}</Project>
+      <Name>DPA_Musicsheets.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

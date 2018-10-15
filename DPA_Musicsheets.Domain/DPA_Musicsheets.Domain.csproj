@@ -44,6 +44,7 @@
     <Compile Include="Entity\Barline.cs" />
     <Compile Include="Entity\Clef.cs" />
     <Compile Include="Entity\MusicalSymbol.cs" />
+    <Compile Include="Entity\MusicSheet.cs" />
     <Compile Include="Entity\Note.cs" />
     <Compile Include="Entity\Rest.cs" />
     <Compile Include="Entity\TimeSignature.cs" />
